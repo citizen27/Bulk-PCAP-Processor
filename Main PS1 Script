@@ -42,5 +42,6 @@ if ($i -ne 0) {
 }
 $i++
 	echo $f 
-	& $tshark -r $_.FullName -T fields -e frame.number -e frame.time -e _ws.col.Protocol -e ip.src -e ip.dst -e _ws.col.Length -e _ws.col.Info -E header=y -Y "$prot $ip" >> $output_file
+	& $tshark -r $_.FullName -T fields -e frame.number -e frame.time -e _ws.col.Protocol `
+	-e ip.src -e ip.dst -e _ws.col.Length -e _ws.col.Info -E header=y -Y "$prot $ip" >> $output_file
 }
