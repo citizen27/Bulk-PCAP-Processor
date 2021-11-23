@@ -36,7 +36,7 @@ if($ip -ne ""){
 
 $i = 0
 
-Get-ChildItem "C:\Users\Jake\Desktop\Practice\" | foreach-Object{
+Get-ChildItem "Path to PCAP folder" | foreach-Object{
 if ($i -ne 0) {
   Add-Content -Path $output_file -Value "`n$($_.FullName)`n"
 }
