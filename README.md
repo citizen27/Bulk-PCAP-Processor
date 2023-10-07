@@ -42,6 +42,13 @@ Ensure the following prerequisites are in place:
 
 - Ensure necessary permissions for input and output folders. Admin rights can resolve most issues.
 
+## ⏩ Future Work ⏩
+
+- Automatically verify Wireshark installation and `tshark` path in the script. Hardcoded variable paths are undesirable
+
+- Parallel processing. Tshark has (-r) to run against a folder, it is just only useful for a MASSIVE amount of processing.
+
+
 ## License 📜
 
 This script is under the [MIT License](LICENSE). 
