@@ -1,47 +1,47 @@
-# Bulk_PCAP_Processor with PowerShell GUI
+# Bulk_PCAP_Processor 📊
 
-This script allows you to analyze packet capture files (.pcap) using PowerShell and provides a user-friendly Windows Forms GUI for selecting input paths, specifying filtering criteria, and choosing an output CSV file.
+Welcome to the **Bulk_PCAP_Processor *, your solution for efficient packet capture file analysis using PowerShell and a user-friendly Windows Forms interface.
 
-## Prerequisites
+## Prerequisites 🛠️
 
-- **Wireshark**: You need to have Wireshark installed on your system, including the `tshark` command-line utility. Make sure to provide the correct path to `tshark` in the script.
+Ensure the following prerequisites are in place:
 
-- **PowerShell**: This script requires PowerShell to run. PowerShell is usually pre-installed on Windows systems.
+- **Wireshark**: Wireshark, including the `tshark` command-line utility, must be installed. Specify the correct `tshark` path in the script.
 
-## Usage
+- **PowerShell**: Ensure PowerShell is available on your Windows system.
 
-**You can run the standalone that is compiled from "Code". This is found in "Applicaiton".**
+## 🚀 Usage 🚀
 
-1. **Run the Script**: Double-click the script file (`Bulk_PCAP_Processor.ps1`) to execute it. Ensure that script execution is allowed on your system.
+**You can run the standalone that is compiled from "Code". This is found in "Application".**
 
-2. **GUI**: The script will display a Windows Forms GUI for interacting with the tool.
+1. **Run the Script**: Execute the `Bulk_PCAP_Processor.ps1` script with a double-click. Ensure script execution permissions are granted.
 
-   - **Select a folder containing PCAP files**: Click the "Browse" button next to this field to choose the folder where your packect capture files are located.
+2. **GUI**: The Windows Forms GUI provides essential options:
 
-   - **Select an output CSV file**: Click the "Browse" button next to this field to specify the path and name of the CSV file where the results will be saved.
+   - **Select Input Folder**: Use the "Browse" button to choose the folder containing your packet capture files.
 
-   - **Select a protocol**: Choose a specific network protocol to filter the log files. You can leave this field blank to analyze all protocols.
+   - **Specify Output CSV**: Set the path and name of the CSV file where results will be stored.
 
-   - **Enter an IP Address**: Optionally, enter an IP address to further filter the results. Leave this field blank to analyze all IP addresses.
+   - **Filter by Protocol**: Optionally, enter an network protocol to narrow results.
 
-3. **Analysis**: Click the "OK" button to start the analysis. The script will:
+   - **Filter by IP Address**: Optionally, enter an IP address to narrow results.
 
-   - Analyze the log files in the selected folder using Wireshark (`tshark`) based on the specified protocol and IP filter.
+3. **Analysis**: Click "OK" to start analysis. The script:
 
-   - Create or append to the output CSV file with the analysis results, including frame number, frame time, protocol, source and destination IP addresses, packet length, and packet info.
+   - Analyzes log files in the chosen folder with Wireshark (`tshark`) based on protocol and IP filters.
 
-   - Display progress in the PowerShell console and provide a summary of the analysis location.
+   - Appends results to the output CSV, including frame number, timestamp, protocol, source/destination IP addresses, packet length, and details.
 
-   - You can monitor the script's progress and see the results saved in the specified CSV file.
+   - Displays progress in the PowerShell console and a summary.
 
-4. **Completion**: Once the analysis is complete, you will see the results saved in the specified CSV file. The GUI will close automatically.
+4. **Completion**: Once analysis finishes, results are saved in the CSV file, and the GUI closes.
 
-## Troubleshooting
+## ⚠️ Troubleshooting ⚠️
 
-- If you encounter any errors or issues, ensure that Wireshark is correctly installed, and the `tshark` executable's path is set correctly in the script.
+- Verify Wireshark installation and `tshark` path in the script.
 
-- Make sure that you have the necessary permissions to read the input folder and write to the output CSV file. Run nas admin to negate most issues
+- Ensure necessary permissions for input and output folders. Admin rights can resolve most issues.
 
-## License
+## License 📜
 
-This script is provided under the [MIT License](LICENSE).
+This script is under the [MIT License](LICENSE). 
