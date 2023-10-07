@@ -10,9 +10,9 @@ This script allows you to analyze Wireshark log files (.pcap) using PowerShell a
 
 ## Usage
 
-1. **Run the Script**: Double-click the script file (`wireshark_log_analyzer.ps1`) to execute it. Ensure that script execution is allowed on your system.
+1. **Run the Script**: Double-click the script file (`Bulk-PCAP-Processor.ps1`) to execute it. Ensure that script execution is allowed on your system.
 
-2. **GUI**: The script will display a Windows Forms GUI for interacting with the tool.
+3. **GUI**: The script will display a Windows Forms GUI for interacting with the tool.
 
    - **Select a folder containing log files**: Click the "Browse" button next to this field to choose the folder where your Wireshark log files are located.
 
@@ -22,7 +22,7 @@ This script allows you to analyze Wireshark log files (.pcap) using PowerShell a
 
    - **Enter an IP Address (leave blank to search for all IPs)**: Optionally, enter an IP address to further filter the results. Leave this field blank to analyze all IP addresses.
 
-3. **Analysis**: Click the "OK" button to start the analysis. The script will:
+4. **Analysis**: Click the "OK" button to start the analysis. The script will:
 
    - Analyze the log files in the selected folder using Wireshark (`tshark`) based on the specified protocol and IP filter.
 
@@ -32,7 +32,7 @@ This script allows you to analyze Wireshark log files (.pcap) using PowerShell a
 
    - You can monitor the script's progress and see the results saved in the specified CSV file.
 
-4. **Completion**: Once the analysis is complete, you will see the results saved in the specified CSV file. The GUI will close automatically.
+5. **Completion**: Once the analysis is complete, you will see the results saved in the specified CSV file. The GUI will close automatically.
 
 ## Troubleshooting
 
