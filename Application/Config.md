@@ -1,1 +1,1 @@
-This program has no configurable oiptions from command line.
+This program has no configurable options from command line.
