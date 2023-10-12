@@ -1,6 +1,6 @@
 # Bulk_PCAP_Processor 📊
 
-Welcome to the **Bulk_PCAP_Processor *, your solution for efficient packet capture file analysis using PowerShell and a user-friendly Windows Forms interface.
+This is  **Bulk_PCAP_Processor**, your solution for efficient packet capture file analysis using PowerShell and a user-friendly Windows Forms interface.
 
 ## Prerequisites 🛠️
 
