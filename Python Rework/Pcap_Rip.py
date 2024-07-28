@@ -2,7 +2,6 @@ import os
 import subprocess
 import csv
 from pathlib import Path
-import webbrowser
 
 def run_tshark(pcap_file, filters, tshark_path):
     tshark_cmd = [
@@ -75,17 +74,6 @@ def main():
                     writer.writerow(line.split('\t'))
             except Exception as e:
                 print(f"Error analyzing {pcap_file}: {e}")
-
-    # Ask the user whether to open the results in a web browser or open the folder
-    view_option = input("Do you want to view the results in a web browser? (yes/no): ").strip().lower()
-    if view_option == 'yes':
-        webbrowser.open(f"file://{os.path.abspath(output_file)}")
-    else:
-        folder_path = os.path.dirname(os.path.abspath(output_file))
-        if os.name == 'nt':  # Windows
-            os.startfile(folder_path)
-        elif os.name == 'posix':  # macOS or Linux
-            subprocess.run(['open', folder_path] if os.uname().sysname == 'Darwin' else ['xdg-open', folder_path])
 
     print(f"Analysis complete. Results saved in {output_file}.")
 
