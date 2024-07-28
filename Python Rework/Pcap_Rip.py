@@ -4,9 +4,9 @@ import csv
 from pathlib import Path
 import webbrowser
 
-def run_tshark(pcap_file, filters):
+def run_tshark(pcap_file, filters, tshark_path):
     tshark_cmd = [
-        "tshark", 
+        tshark_path, 
         "-r", str(pcap_file), 
         "-T", "fields", 
         "-e", "frame.number", 
@@ -29,6 +29,17 @@ def main():
     # User Inputs
     folder = input("Enter the folder containing PCAP files: ")
     output_file = input("Enter the output CSV file name (with .csv extension): ")
+    tshark_path = input("Enter the full path to the tshark executable (e.g., C:\\Program Files\\Wireshark\\tshark.exe): ")
+
+    # Validate tshark path
+    if not os.path.isfile(tshark_path):
+        print(f"The specified tshark path does not exist: {tshark_path}")
+        return
+
+    # Validate the folder
+    if not os.path.isdir(folder):
+        print(f"The folder {folder} does not exist.")
+        return
 
     # User Inputs for filters
     protocol_filter = input("Enter the protocol to filter (leave blank to search all protocols): ")
@@ -45,11 +56,6 @@ def main():
 
     filter_string = " && ".join(filters)
 
-    # Ensure the folder exists
-    if not os.path.isdir(folder):
-        print(f"The folder {folder} does not exist.")
-        return
-
     # Initialize CSV file
     with open(output_file, mode='w', newline='') as file:
         writer = csv.writer(file)
@@ -57,9 +63,13 @@ def main():
 
         # Iterate over each file in the directory
         for pcap_file in Path(folder).rglob('*.pcap'):
+            if not pcap_file.is_file():
+                print(f"Skipping {pcap_file}, as it is not a valid file.")
+                continue
+            
             print(f"Analyzing {pcap_file}...")
             try:
-                tshark_output = run_tshark(pcap_file, filter_string)
+                tshark_output = run_tshark(pcap_file, filter_string, tshark_path)
                 # Skip the header line and write the rest to the CSV
                 for line in tshark_output.splitlines()[1:]:
                     writer.writerow(line.split('\t'))
@@ -75,7 +85,7 @@ def main():
         if os.name == 'nt':  # Windows
             os.startfile(folder_path)
         elif os.name == 'posix':  # macOS or Linux
-            subprocess.run(['open', folder_path] if sys.platform == 'darwin' else ['xdg-open', folder_path])
+            subprocess.run(['open', folder_path] if os.uname().sysname == 'Darwin' else ['xdg-open', folder_path])
 
     print(f"Analysis complete. Results saved in {output_file}.")
 
