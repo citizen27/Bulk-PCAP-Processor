@@ -37,7 +37,7 @@ def main():
     else:
         tshark_path = input("Enter the full path to the tshark executable: ")
 
-    # Validate tshark path
+    # Validate tshark paths
     if not os.path.isfile(tshark_path):
         print(f"The specified tshark path does not exist: {tshark_path}")
         return
